@@ -15,6 +15,7 @@
  */
 package com.foreach.across.modules.bootstrapui.elements;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -29,6 +30,17 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class TestNumericFormElementConfiguration
 {
+
+	public static final String REQUIRED_LC_ENV = "nl_BE.UTF-8";
+
+	@BeforeAll
+	static void beforeAll() {
+		String lcNumeric = System.getenv( "LC_NUMERIC" );
+		assertTrue( lcNumeric == null || lcNumeric.equals( REQUIRED_LC_ENV ), "Use LC_NUMERIC=" + REQUIRED_LC_ENV );
+		String lcMonetary = System.getenv( "LC_MONETARY" );
+		assertTrue( lcMonetary == null || lcMonetary.equals( REQUIRED_LC_ENV ), "Use LC_MONETARY=" + REQUIRED_LC_ENV );
+	}
+
 	@Test
 	public void disableGroupingIsNeverRemoved() {
 		NumericFormElementConfiguration configuration = new NumericFormElementConfiguration();

@@ -434,7 +434,7 @@ public class TestMapEntityPropertyBinder
 	public void updatingTheValueDoesNotUseTheController() {
 		property.setValue( Collections.singletonMap( "two", 2 ) );
 		verify( collectionController ).fetchValue( bindingContext );
-		verifyZeroInteractions( collectionController );
+		verifyNoInteractions( collectionController );
 	}
 
 	@Test
@@ -618,7 +618,7 @@ public class TestMapEntityPropertyBinder
 		assertThat( property.save() ).isTrue();
 		verify( collectionController ).save( bindingContext, new EntityPropertyValue<>( ORIGINAL_VALUE, Collections.emptyMap(), true ) );
 
-		verifyZeroInteractions( key, value );
+		verifyNoInteractions( key, value );
 	}
 
 	@Test

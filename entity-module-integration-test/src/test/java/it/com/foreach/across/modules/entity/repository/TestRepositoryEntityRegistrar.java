@@ -40,8 +40,6 @@ import com.foreach.across.modules.spring.security.SpringSecurityModule;
 import com.foreach.across.modules.spring.security.actions.AllowableAction;
 import com.foreach.across.test.AcrossTestConfiguration;
 import com.foreach.across.test.AcrossWebAppConfiguration;
-import com.foreach.across.testmodules.solr.SolrTestModule;
-import com.foreach.across.testmodules.solr.business.Product;
 import com.foreach.across.testmodules.springdata.SpringDataJpaModule;
 import com.foreach.across.testmodules.springdata.business.*;
 import com.foreach.across.testmodules.springdata.repositories.ClientRepository;
@@ -140,10 +138,6 @@ public class TestRepositoryEntityRegistrar
 				.hasRepository()
 				.hasAssociation( "company.representatives", true ).from( null ).to( Company.class, "representatives" );
 
-		verify( Product.class )
-				.isVisible( true )
-				.hasRepository();
-
 		// enum entity should not be visible
 		verify( Country.class )
 				.isVisible( false );
@@ -159,7 +153,7 @@ public class TestRepositoryEntityRegistrar
 		verify( Representative.class ).isFromModule( SpringDataJpaModule.NAME );
 
 		// from module which bootstrapped before EntityModule
-		verify( Product.class ).isFromModule( SolrTestModule.NAME );
+		//verify( Product.class ).isFromModule( SolrTestModule.NAME );
 	}
 
 	private EntityVerifier verify( Class<?> entityType ) {
@@ -429,14 +423,8 @@ public class TestRepositoryEntityRegistrar
 		}
 
 		@Bean
-		public SolrTestModule solrTestModule() {
-			return new SolrTestModule();
-		}
-
-		@Bean
 		public EntityModule entityModule() {
 			EntityModule entityModule = new EntityModule();
-			entityModule.addRuntimeDependency( SolrTestModule.NAME );
 			return entityModule;
 		}
 

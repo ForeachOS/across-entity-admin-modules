@@ -21,7 +21,6 @@ import com.foreach.across.modules.entity.registry.EntityRegistry;
 import com.foreach.across.modules.entity.registry.properties.EntityPropertyDescriptor;
 import com.foreach.across.modules.entity.support.EntityMessageCodeResolver;
 import com.foreach.across.test.AcrossWebAppConfiguration;
-import com.foreach.across.testmodules.solr.business.Product;
 import com.foreach.across.testmodules.springdata.business.Client;
 import com.foreach.across.testmodules.springdata.business.Company;
 import it.com.foreach.across.modules.entity.repository.TestRepositoryEntityRegistrar;
@@ -90,6 +89,7 @@ public class ITEntityMessageCodeResolver
 		);
 	}
 
+/*
 	@Test
 	public void customPrefixedResolver() {
 		EntityMessageCodeResolver productResolver = entityRegistry.getEntityConfiguration( Product.class ).getEntityMessageCodeResolver();
@@ -102,6 +102,7 @@ public class ITEntityMessageCodeResolver
 				productResolver.buildMessageCodes( "*", true )
 		);
 	}
+*/
 
 	@Test
 	public void defaultCodeResolverForEntityAssociation() {

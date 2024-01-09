@@ -103,7 +103,7 @@ public class TestEntityIdProxyPropertyRegistrar
 
 		Errors errors = mock( Errors.class );
 		ref.getController().validate( EntityPropertyBindingContext.forUpdating( owner, owner ), EntityPropertyValue.of( null ), errors );
-		verifyZeroInteractions( errors );
+		verifyNoInteractions( errors );
 
 		EntityQueryConditionTranslator conditionTranslator = ref.getAttribute( EntityQueryConditionTranslator.class );
 		assertThat( conditionTranslator ).isNotNull();
@@ -179,7 +179,7 @@ public class TestEntityIdProxyPropertyRegistrar
 		Errors errors = mock( Errors.class );
 		ref.getController().validate( EntityPropertyBindingContext.forUpdating( owner, owner ), EntityPropertyValue.of( null ), errors );
 		ref.getController().validate( EntityPropertyBindingContext.forUpdating( owner, owner ), EntityPropertyValue.of( Collections.emptyList() ), errors );
-		verifyZeroInteractions( errors );
+		verifyNoInteractions( errors );
 
 		EntityQueryConditionTranslator conditionTranslator = ref.getAttribute( EntityQueryConditionTranslator.class );
 		assertThat( conditionTranslator ).isNotNull();

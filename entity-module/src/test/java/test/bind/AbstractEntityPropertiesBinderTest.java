@@ -86,7 +86,7 @@ public abstract class AbstractEntityPropertiesBinderTest
 
 	@SuppressWarnings("unchecked")
 	protected IterableAssert<Object> assertCollection( String property ) {
-		return assertThat( (Collection) propertyValues.get( property ).getValue() );
+		return assertThat( (Iterable) propertyValues.get( property ).getValue() );
 	}
 
 	@SuppressWarnings("unchecked")

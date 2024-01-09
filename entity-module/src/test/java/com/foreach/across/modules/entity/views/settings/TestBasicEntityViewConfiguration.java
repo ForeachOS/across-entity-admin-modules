@@ -44,7 +44,7 @@ public class TestBasicEntityViewConfiguration
 	@Test
 	public void emptyConfigurationDoesNothing() {
 		configuration.accept( builder );
-		verifyZeroInteractions( builder );
+		verifyNoInteractions( builder );
 	}
 
 	@Test

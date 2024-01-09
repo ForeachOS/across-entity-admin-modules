@@ -22,7 +22,6 @@ import com.foreach.across.modules.debugweb.DebugWebModule;
 import com.foreach.across.modules.entity.EntityModule;
 import com.foreach.across.modules.hibernate.jpa.AcrossHibernateJpaModule;
 import com.foreach.across.testmodules.mongo.MongoTestModule;
-import com.foreach.across.testmodules.solr.SolrTestModule;
 import com.foreach.across.testmodules.springdata.SpringDataJpaModule;
 import org.springframework.boot.SpringApplication;
 
@@ -34,7 +33,7 @@ import org.springframework.boot.SpringApplication;
 		modules = {
 				AcrossHibernateJpaModule.NAME,
 				AdminWebModule.NAME, EntityModule.NAME, DebugWebModule.NAME,
-				SolrTestModule.NAME, SpringDataJpaModule.NAME, MongoTestModule.NAME
+				SpringDataJpaModule.NAME, MongoTestModule.NAME
 		},
 		modulePackages = "com.foreach.across.testmodules"
 )

@@ -51,7 +51,7 @@ class TestEntityViewProcessorConfigurer
 	@Test
 	void nothingToBeDone() {
 		configurer.applyTo( registry );
-		verifyZeroInteractions( beanFactory );
+		verifyNoInteractions( beanFactory );
 	}
 
 	@Test
@@ -59,7 +59,7 @@ class TestEntityViewProcessorConfigurer
 		EntityViewProcessorConfigurer<MyViewProcessor> typed = configurer.withType( MyViewProcessor.class );
 		typed.applyTo( registry );
 
-		verifyZeroInteractions( beanFactory );
+		verifyNoInteractions( beanFactory );
 		verify( registry ).getProcessorRegistration( MyViewProcessor.class.getName() );
 	}
 
@@ -118,7 +118,7 @@ class TestEntityViewProcessorConfigurer
 		configurer.applyTo( registry );
 
 		verify( registry ).getProcessorRegistration( MyViewProcessor.class.getName() );
-		verifyZeroInteractions( existing );
+		verifyNoInteractions( existing );
 		verifyNoMoreInteractions( registry );
 	}
 

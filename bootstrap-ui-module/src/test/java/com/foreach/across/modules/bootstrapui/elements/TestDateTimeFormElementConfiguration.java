@@ -16,6 +16,7 @@
 package com.foreach.across.modules.bootstrapui.elements;
 
 import org.apache.commons.lang3.time.DateUtils;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
@@ -40,6 +41,14 @@ public class TestDateTimeFormElementConfiguration
 		catch ( ParseException pe ) {
 			throw new RuntimeException( pe );
 		}
+	}
+
+	public static final String REQUIRED_LC_ENV = "en_US.UTF-8";
+
+	@BeforeAll
+	static void beforeAll() {
+		String lcTime = System.getenv( "LC_TIME" );
+		assertTrue( lcTime == null || lcTime.equals( REQUIRED_LC_ENV ), "Use LC_TIME=" + REQUIRED_LC_ENV );
 	}
 
 	@Test

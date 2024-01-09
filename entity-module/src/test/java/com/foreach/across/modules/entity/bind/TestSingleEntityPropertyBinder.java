@@ -434,7 +434,7 @@ public class TestSingleEntityPropertyBinder
 		when( binder.createChildPropertyPropertiesBinder() ).thenReturn( childBinder );
 
 		assertThat( property.getValue() ).isEqualTo( 1 );
-		verifyZeroInteractions( childBinder );
+		verifyNoInteractions( childBinder );
 
 		assertThat( property.getProperties() ).isSameAs( childBinder );
 		assertThat( property.getValue() ).isEqualTo( 1 );
@@ -450,7 +450,7 @@ public class TestSingleEntityPropertyBinder
 
 		property.markDirty();
 		assertThat( property.getValue() ).isEqualTo( 1 );
-		verifyZeroInteractions( childBinder );
+		verifyNoInteractions( childBinder );
 
 		assertThat( property.getProperties() ).isSameAs( childBinder );
 		assertThat( property.getValue() ).isEqualTo( 1 );
@@ -488,7 +488,7 @@ public class TestSingleEntityPropertyBinder
 	@Test
 	public void resolveNonExistingChildProperty() {
 		assertThat( property.resolvePropertyBinder( mock( EntityPropertyDescriptor.class ) ) ).isNull();
-		verifyZeroInteractions( binder );
+		verifyNoInteractions( binder );
 	}
 
 	@Test

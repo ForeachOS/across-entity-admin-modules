@@ -566,7 +566,7 @@ public class TestListEntityPropertyBinder
 		assertThat( property.save() ).isTrue();
 		verify( collectionController ).save( bindingContext, new EntityPropertyValue<>( ORIGINAL_VALUE, Collections.emptyList(), true ) );
 
-		verifyZeroInteractions( itemOne, itemTwo );
+		verifyNoInteractions( itemOne, itemTwo );
 	}
 
 	@Test
